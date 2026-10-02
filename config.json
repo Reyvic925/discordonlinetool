@@ -1,0 +1,29 @@
+{
+  "choose_random_online_status_from": [
+    "online", "online", "online", "online", "online",
+    "idle",
+    "invisible"
+  ],
+
+  "night_hours": [1, 2, 3, 4, 5, 6, 7],
+  "night_pool":  ["invisible", "invisible", "invisible", "idle", "online"],
+
+  "status_change_interval_seconds": {
+    "online":    { "min": 900,  "max": 5400 },
+    "idle":      { "min": 300,  "max": 1800 },
+    "invisible": { "min": 1800, "max": 7200 },
+    "dnd":       { "min": 600,  "max": 2400 },
+    "default":   { "min": 900,  "max": 5400 }
+  },
+
+  "activity_swap_chance": 0.4,
+
+  "choose_random_activity_type_from": ["game", "listening", "watching", "custom"],
+
+  "game":      { "choose_random_game_from": ["Minecraft", "Rust", "VRChat", "Apex Legends", "Escape from Tarkov", "Rainbow Six Siege"] },
+  "streaming": { "choose_random_name_from": ["chill stream", "ranked grind"], "choose_random_url_from": ["https://twitch.tv/example"] },
+  "listening": { "choose_random_name_from": ["Spotify", "YouTube Music", "Apple Music"] },
+  "watching":  { "choose_random_name_from": ["YouTube", "Netflix", "Twitch"] },
+  "custom":    { "choose_random_name_from": ["brb", "afk", "chillin", "back later"] },
+  "competing": { "choose_random_name_from": ["Ranked", "Tournament"] }
+}
