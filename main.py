@@ -358,8 +358,20 @@ if __name__ == "__main__":
     tokens = [t.strip() for t in raw.split(",") if t.strip()]
 
     if not tokens:
-        with open("tokens.txt", "r") as token_file:
-            tokens = [t.strip() for t in token_file.read().splitlines() if t.strip()]
+        try:
+            with open("tokens.txt", "r") as token_file:
+                tokens = [t.strip() for t in token_file.read().splitlines() if t.strip()]
+        except FileNotFoundError:
+            raise SystemExit(
+                "No Discord tokens configured. Set DISCORD_TOKENS in the deployment "
+                "environment, or create tokens.txt for local runs."
+            )
+
+    if not tokens:
+        raise SystemExit(
+            "No Discord tokens configured. Set DISCORD_TOKENS in the deployment "
+            "environment, or add tokens to tokens.txt for local runs."
+        )
 
     with open("config.json", "r") as config_file:
         config = json.loads(config_file.read())
